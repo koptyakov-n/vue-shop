@@ -4,7 +4,13 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
+import quantityFilter from "@/filters/quantity.filter";
+
+import '@/assets/style.scss'
+
 Vue.config.productionTip = false
+
+Vue.filter("quantityFilter", quantityFilter);
 
 new Vue({
   router,
