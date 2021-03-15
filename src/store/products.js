@@ -1,50 +1,42 @@
 export default {
   state: {
-    products: []
+    products: [],
   },
   mutations: {
-    setProducts(state, data){
+    setProducts(state, data) {
       state.products = data
-
-    }
+    },
   },
-  actions:{
-    async fetchProducts( { commit } , category) {
+  actions: {
+    async fetchProducts({ commit }, category) {
       try {
-        const url = `https://projects.koptyakov.ru/shop-server/products.php?category=${category}`;
-        const data = await fetch(url)  
-          .then( response => {  
-            if (response.status !== 200) {  
-              console.log('[Error] Status Code: ' +  response.status) 
+        const url = `https://projects.koptyakov.ru/shop-server/products.php?category=${category}`
+        const data = await fetch(url)
+          .then((response) => {
+            if (response.status !== 200) {
+              console.log('[Error] Status Code: ' + response.status)
             }
             return response.json()
           })
-          .then(json => {  
-            const data = JSON.parse(json) 
+          .then((json) => {
+            const data = JSON.parse(json)
             return data
-          }) 
-        // console.log(data);
-      
-        commit("setProducts", data || [])
+          })
+        commit('setProducts', data || [])
         return data
-
       } catch (e) {
-        console.log('[Error]: ', e);
+        console.log('[Error]: ', e)
       }
       return null
-    }
+    },
   },
   getters: {
-    getProducts: state => state.products,
-
-    getProductsByCategory: state => id => {
+    getProducts: (state) => state.products,
+    getProductsByCategory: (state) => (id) => {
       console.log(JSON.stringify(state.products, null, ' '))
-      return state.products.filter(product => {
-        return product.category.find(cat => cat.id === id);
+      return state.products.filter((product) => {
+        return product.category.find((cat) => cat.id === id)
       })
-    }
-    
-
-
-  }
+    },
+  },
 }

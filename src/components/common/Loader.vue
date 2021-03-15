@@ -11,7 +11,7 @@
   border-radius: 50%;
 }
 .loader {
-  color: #FB6900;
+  color: #fb6900;
   font-size: 11px;
   text-indent: -99999em;
   margin: 55px auto;
@@ -72,5 +72,4 @@
     transform: rotate(360deg);
   }
 }
-
 </style>

@@ -4,16 +4,16 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
-import quantityFilter from "@/filters/quantity.filter";
+import quantityFilter from '@/filters/quantity.filter'
 
 import '@/assets/style.scss'
 
 Vue.config.productionTip = false
 
-Vue.filter("quantityFilter", quantityFilter);
+Vue.filter('quantityFilter', quantityFilter)
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount('#app')

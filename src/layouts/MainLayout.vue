@@ -6,18 +6,17 @@
       <router-view />
     </div>
   </div>
-  
 </template>
 
 <script>
-import Loader from "@/components/common/Loader"
+import Loader from '@/components/common/Loader'
 import Navbar from '@/components/common/Navbar'
 
 export default {
-  name: "main-layout",
+  name: 'main-layout',
   data() {
-    return{ 
-      loading: true
+    return {
+      loading: true,
     }
   },
   async mounted() {
@@ -25,7 +24,8 @@ export default {
     this.loading = false
   },
   components: {
-    Loader, Navbar
-  }
+    Loader,
+    Navbar,
+  },
 }
 </script>
